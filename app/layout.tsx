@@ -14,21 +14,9 @@ export const metadata: Metadata = {
     'النظام الإداري العسكري للقوات المشتركة — منصة موحدة لإدارة الوزارات والقوانين والتجنيد والتكريمات.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/empire-logo.jpeg',
+    shortcut: '/empire-logo.jpeg',
+    apple: '/empire-logo.jpeg',
   },
 }
 

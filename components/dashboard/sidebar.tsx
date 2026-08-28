@@ -12,6 +12,7 @@ import {
   Wrench,
   LifeBuoy,
   ChevronRight,
+  X,
 } from "lucide-react"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
@@ -42,13 +43,40 @@ const otherNav = [
   { label: "هيئة التطوير العسكري", icon: Wrench },
 ]
 
-export function Sidebar() {
+export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [active, setActive] = useState("الصفحة الرئيسية")
 
+  const selectItem = (label: string) => {
+    setActive(label)
+    onClose()
+  }
+
   return (
-    <aside className="flex h-full w-72 shrink-0 flex-col gap-6 border-s border-border bg-sidebar p-5">
+    <>
+      {open && (
+        <button
+          type="button"
+          aria-label="إغلاق القائمة"
+          onClick={onClose}
+          className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden"
+        />
+      )}
+      <aside
+        className={cn(
+          "fixed inset-y-0 right-0 z-50 flex h-dvh w-[min(88vw,18rem)] shrink-0 flex-col gap-5 overflow-y-auto border-s border-border bg-sidebar p-5 shadow-2xl transition-transform duration-300 lg:static lg:z-auto lg:h-screen lg:w-72 lg:translate-x-0 lg:gap-6 lg:shadow-none",
+          open ? "translate-x-0" : "translate-x-full",
+        )}
+      >
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-foreground">القوات المشتركة</h2>
+        <button
+          type="button"
+          aria-label="إغلاق القائمة"
+          onClick={onClose}
+          className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground lg:hidden"
+        >
+          <X className="size-5" />
+        </button>
       </div>
 
       <nav className="flex flex-col gap-1">
@@ -58,7 +86,7 @@ export function Sidebar() {
           return (
             <button
               key={item.label}
-              onClick={() => setActive(item.label)}
+              onClick={() => selectItem(item.label)}
               className={cn(
                 "flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-colors",
                 isActive
@@ -82,7 +110,7 @@ export function Sidebar() {
           return (
             <button
               key={item.label}
-              onClick={() => setActive(item.label)}
+              onClick={() => selectItem(item.label)}
               className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <Icon className="size-[18px]" />
@@ -107,7 +135,7 @@ export function Sidebar() {
           return (
             <button
               key={item.label}
-              onClick={() => setActive(item.label)}
+              onClick={() => selectItem(item.label)}
               className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <Icon className="size-[18px]" />
@@ -126,6 +154,7 @@ export function Sidebar() {
           <ChevronRight className="size-4" />
         </button>
       </div>
-    </aside>
+      </aside>
+    </>
   )
 }

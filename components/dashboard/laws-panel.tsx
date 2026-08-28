@@ -105,14 +105,14 @@ export function LawsPanel() {
         : "القوانين العامة للقطاعات العسكرية"
 
   return (
-    <div className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-5">
-      <div className="flex items-center justify-end gap-2">
+    <div className="min-w-0 flex flex-col gap-5 rounded-2xl border border-border bg-card p-3 sm:p-5">
+      <div className="flex flex-wrap items-center justify-end gap-2">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActive(tab)}
             className={cn(
-              "rounded-lg px-4 py-2 text-sm transition-colors",
+              "rounded-lg px-3 py-2 text-sm transition-colors sm:px-4",
               active === tab
                 ? "bg-primary font-semibold text-primary-foreground"
                 : "text-muted-foreground hover:bg-secondary hover:text-foreground",

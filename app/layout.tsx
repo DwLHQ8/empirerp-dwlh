@@ -9,7 +9,7 @@ const cairo = Cairo({
 })
 
 export const metadata: Metadata = {
-  title: 'ARAB PURE | النظام الإداري العسكري',
+  title: 'Empire Rp by DwLH',
   description:
     'النظام الإداري العسكري للقوات المشتركة — منصة موحدة لإدارة الوزارات والقوانين والتجنيد والتكريمات.',
   generator: 'v0.app',

@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, X } from "lucide-react"
+import { Home, LifeBuoy, X } from "lucide-react"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
@@ -66,6 +66,18 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
         })}
       </nav>
 
+      <div className="mt-auto border-t border-border pt-4">
+        <a
+          href="https://discord.com/channels/1223677404157972501/1511891034869731418"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="التواصل مع فريق الدعم على ديسكورد"
+          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        >
+          <LifeBuoy className="size-[18px]" />
+          فريق الدعم
+        </a>
+      </div>
       </aside>
     </>
   )
